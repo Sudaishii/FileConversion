@@ -29,21 +29,25 @@
         <p class="OnlineRegistration">Online Registration</p>
         <hr>
 
+        <form id="registrationForm" method="POST" action="validate.php">
+
         <!-- Name Row -->
         <div class="Account-Details">
             <div class="field">
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" placeholder="First Name">
+                <label for="firstname">First Name <span class="required">*</span></label>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+                <span class="error-message" id="firstname-error"></span>
             </div>
 
             <div class="field">
                 <label for="middlename">Middle Name</label>
-                <input type="text" id="middlename" placeholder="Middle Name">
+                <input type="text" id="middlename" name="middlename" placeholder="Middle Name">
             </div>
 
             <div class="field">
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" placeholder="Last Name">
+                <label for="lastname">Last Name <span class="required">*</span></label>
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+                <span class="error-message" id="lastname-error"></span>
             </div>
 
             <div class="field field-suffix">
@@ -62,31 +66,34 @@
         <!-- DOB + Sex -->
         <div class="Account-Details">
             <div class="field">
-                <label for="dob">Date of Birth</label>
-                <input type="date" id="dob">
+                <label for="dob">Date of Birth <span class="required">*</span></label>
+                <input type="date" id="dob" name="dob" required>
+                <span class="error-message" id="dob-error"></span>
             </div>
 
             <div class="field">
-                <label for="sex">Sex</label>
-                <select id="sex">
+                <label for="sex">Sex <span class="required">*</span></label>
+                <select id="sex" name="sex" required>
                     <option value="">Select Sex</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
+                <span class="error-message" id="sex-error"></span>
             </div>
         </div>
 
         <!-- Civil Status + TIN -->
         <div class="Account-Details">
             <div class="field">
-                <label for="civil_status">Civil Status</label>
-                <select id="civil_status" name="civil_status">
+                <label for="civil_status">Civil Status <span class="required">*</span></label>
+                <select id="civil_status" name="civil_status" required>
                     <option value="">Select Civil Status</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
                     <option value="Widowed">Widowed</option>
                     <option value="Legally Separated">Legally Separated</option>
                 </select>
+                <span class="error-message" id="civil_status-error"></span>
             </div>
 
             <div class="field">
@@ -95,13 +102,27 @@
             </div>
         </div>
 
+        <!-- Nationality -->
+        <div class="Account-Details">
+            <div class="field">
+                <label for="nationality">Nationality <span class="required">*</span></label>
+                <select id="nationality" name="nationality" required>
+                    <option value="">Select Nationality</option>
+                    <option value="Filipino">Filipino</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span class="error-message" id="nationality-error"></span>
+            </div>
+        </div>
+
         <!-- Place of Birth -->
         <div class="Account-Details">
             <div class="field">
-                <label for="place_of_birth">Place of Birth</label>
-                <input type="text" id="place_of_birth" name="place_of_birth" placeholder="City / Municipality, Province">
+                <label for="place_of_birth">Place of Birth <span class="required">*</span></label>
+                <input type="text" id="place_of_birth" name="place_of_birth" placeholder="City / Municipality, Province" required>
+                <span class="error-message" id="place_of_birth-error"></span>
                 <div class="same-address">
-                    <input type="checkbox" id="same_address">
+                    <input type="checkbox" id="same_address" name="same_address">
                     <label for="same_address">The same with Home Address</label>
                 </div>
             </div>
@@ -110,8 +131,9 @@
         <!-- Home Address + Zip Code -->
         <div class="Account-Details" id="home-address-row">
             <div class="field">
-                <label for="home_address">Home Address</label>
-                <input type="text" id="home_address" name="home_address" placeholder="House No., Street, Barangay, City, Province">
+                <label for="home_address">Home Address <span class="required">*</span></label>
+                <input type="text" id="home_address" name="home_address" placeholder="House No., Street, Barangay, City, Province" required>
+                <span class="error-message" id="home_address-error"></span>
             </div>
 
             <div class="field">
@@ -123,13 +145,15 @@
         <!-- Phone + Email -->
         <div class="Account-Details">
             <div class="field">
-                <label for="phone">Phone Number</label>
-                <input type="text" id="phone" name="phone" placeholder="09XXXXXXXXX" maxlength="11">
+                <label for="phone">Mobile/Cellphone Number <span class="required">*</span></label>
+                <input type="text" id="phone" name="phone" placeholder="09XXXXXXXXX" maxlength="11" required>
+                <span class="error-message" id="phone-error"></span>
             </div>
 
             <div class="field">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="example@email.com">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                <span class="error-message" id="email-error"></span>
             </div>
         </div>
 
@@ -218,7 +242,8 @@
             </div>
             <div class="field">
                 <label>Date of Birth</label>
-                <input type="date" placeholder="MM/DD/YYYY">
+                <input type="date" id="spouse_dob" name="spouse_dob" placeholder="MM/DD/YYYY">
+                <span class="error-message" id="spouse_dob-error"></span>
             </div>
         </div>
 
@@ -253,7 +278,8 @@
             </div>
             <div class="field">
                 <label>Date of Birth</label>
-                <input type="date" placeholder="MM/DD/YYYY">
+                <input type="date" id="child1_dob" name="child1_dob" placeholder="MM/DD/YYYY">
+                <span class="error-message" id="child1_dob-error"></span>
             </div>
         </div>
 
@@ -285,7 +311,8 @@
             </div>
             <div class="field">
                 <label>Date of Birth</label>
-                <input type="date" placeholder="MM/DD/YYYY">
+                <input type="date" id="child2_dob" name="child2_dob" placeholder="MM/DD/YYYY">
+                <span class="error-message" id="child2_dob-error"></span>
             </div>
         </div>
 
@@ -319,13 +346,24 @@
             </select>
 
             </div>
-            <div class="field">
+        
+                
+                <div class="field">
                 <label>Relationship</label>
-                <input type="text" placeholder="Relationship">
+            <select>
+                <option value="">Select Relationship</option>
+                <option value="Sibling">Sibling</option>
+                <option value="Grandparent">Grandparent</option>
+                <option value="Relative">Relative</option>
+                <option value="Guardian">Guardian</option>
+                <option value="Other">Other</option>
+            </select>
+ 
             </div>
             <div class="field">
                 <label>Date of Birth</label>
-                <input type="date" placeholder="MM/DD/YYYY">
+                <input type="date" id="other_benef1_dob" name="other_benef1_dob" placeholder="MM/DD/YYYY">
+                <span class="error-message" id="other_benef1_dob-error"></span>
             </div>
         </div>
         <div class="Account-Details">
@@ -355,11 +393,20 @@
             </div>
             <div class="field">
                 <label>Relationship</label>
-                <input type="text" placeholder="Relationship">
+                <select>
+                    <option value="">Select Relationship</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Sibling">Sibling</option>
+                    <option value="Grandparent">Grandparent</option>
+                    <option value="Relative">Relative</option>
+                    <option value="Guardian">Guardian</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <div class="field">
                 <label>Date of Birth</label>
-                <input type="date" placeholder="MM/DD/YYYY">
+                <input type="date" id="other_benef2_dob" name="other_benef2_dob" placeholder="MM/DD/YYYY">
+                <span class="error-message" id="other_benef2_dob-error"></span>
             </div>
         </div>
 
@@ -467,146 +514,69 @@
     </div>
 
 </div>
+<hr>
 
-    <hr>
+<p class="section-title">D. CERTIFICATION</p>
 
-    <p class="section-title">D. CERTIFICATION</p>
+<p class="cert-text">
+    I certify that the information provided in this form are true and correct.<br>
+    <span>(Upload what's being asked)</span>
+</p>
 
-    <p class="cert-text">
-        I certify that the information provided in this form are true and correct.<br>
-        <span>(Upload what's being asked)</span>
-    </p>
+<div class="cert-grid">
 
-    <div class="cert-row">
-        <div class="cert-label">PRINTED NAME</div>
-        <input type="text" class="cert-input">
-    </div>
+    <!-- LEFT BOX -->
+    <div class="cert-box">
+        <div class="cert-box-title">CERTIFICATION DETAILS</div>
 
-    <div class="cert-row">
-        <div class="cert-label">SIGNATURE</div>
-        <input type="file" class="cert-input">
-    </div>
-
-    <div class="cert-row">
-        <div class="cert-label">DATE</div>
-        <input type="date" class="cert-input">
-    </div>
-
-    <div class="cert-row">
-        <div class="cert-label">RIGHT THUMB</div>
-        <input type="file" class="cert-input">
-    </div>
-
-    <div class="cert-row">
-        <div class="cert-label">RIGHT INDEX</div>
-        <input type="file" class="cert-input">
-    </div>
-
-    <hr>
-
-<div class="sss-part2-wrapper">
-
-    <div class="sss-part2-title">
-        PART II - TO BE FILLED OUT BY SSS
-    </div>
-
-    <div class="sss-part2-grid">
-
-        <!-- COLUMN 1 -->
-        <div class="sss-part2-col">
-            <div class="sss-field">
-                <label>BUSINESS CODE<br><span>(FOR SE)</span></label>
-                <input type="text">
-            </div>
-
-            <div class="sss-field">
-                <label>MONTHLY SS CONTRIBUTION<br><span>(FOR SE/OFW/NWS)</span></label>
-                <input type="text">
-            </div>
-
-            <div class="sss-field">
-                <label>START OF PAYMENT<br><span>(FOR SE/NWS)</span></label>
-                <input type="date">
-            </div>
+        <div class="cert-line">
+            <label>Printed Name</label>
+            <input type="text">
         </div>
 
-        <!-- COLUMN 2 -->
-        <div class="sss-part2-col">
-            <div class="sss-field">
-                <label>WORKING SPOUSE'S MSC<br><span>(FOR NWS)</span></label>
-                <input type="text">
-            </div>
-
-            <div class="sss-field">
-                <label>APPROVED MSC<br><span>(FOR SE/OFW/NWS)</span></label>
-                <input type="text">
-            </div>
-
-            <div class="sss-field">
-                <label>FLEXI-FUND APPLICATION<br><span>(FOR OFW)</span></label>
-                <div class="sss-checkbox">
-                    <label><input type="checkbox"> Approved</label>
-                    <label><input type="checkbox"> Disapproved</label>
-                </div>
-            </div>
+        <div class="cert-line">
+            <label>Signature</label>
+            <input type="file">
         </div>
 
-        <!-- COLUMN 3 -->
-        <div class="sss-part2-col">
-
-            <div class="sss-sign-box">
-                <div class="sss-sign-title">
-                    RECEIVED BY<br>
-                    <span>(REPRESENTATIVE OFFICE/PARTNER AGENT)</span>
-                </div>
-
-                <div class="sss-line"></div>
-                <div class="sss-sign-label">SIGNATURE OVER PRINTED NAME</div>
-
-                <div class="sss-sign-row">
-                    <div>
-                        <div class="sss-line"></div>
-                        <div class="sss-sign-label">DATE & TIME</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sss-sign-box">
-                <div class="sss-sign-title">
-                    RECEIVED & PROCESSED BY<br>
-                    <span>(MSS, BRANCH/SERVICE OFFICE/FOREIGN OFFICE)</span>
-                </div>
-
-                <div class="sss-line"></div>
-                <div class="sss-sign-label">SIGNATURE OVER PRINTED NAME</div>
-
-                <div class="sss-line"></div>
-                <div class="sss-sign-label">DATE & TIME</div>
-            </div>
-
-            <div class="sss-sign-box">
-                <div class="sss-sign-title">
-                    REVIEWED BY<br>
-                    <span>(MSS, BRANCH/SERVICE OFFICE)</span>
-                </div>
-
-                <div class="sss-line"></div>
-                <div class="sss-sign-label">SIGNATURE OVER PRINTED NAME</div>
-
-                <div class="sss-line"></div>
-                <div class="sss-sign-label">DATE & TIME</div>
-            </div>
-
+        <div class="cert-line">
+            <label>Date</label>
+            <input type="date">
         </div>
-
     </div>
+
+    <!-- RIGHT BOX -->
+    <div class="cert-box">
+        <div class="cert-box-title">BIOMETRICS</div>
+
+        <div class="cert-line">
+            <label>Right Thumb</label>
+            <input type="file">
+        </div>
+
+        <div class="cert-line">
+            <label>Right Index</label>
+            <input type="file">
+        </div>
+    </div>
+
 </div>
-    
 
 
+
+    <hr>
+
+                <div class="submit-wrapper">
+            <button type="submit" class="submit-btn">
+                Submit Registration
+            </button>
+        </div>
+
+        </form>
 
     </div>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>

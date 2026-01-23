@@ -4,6 +4,7 @@
     padding: 0;
     text-decoration: none;
     font-family: "Montserrat";
+    
 }
 
 #wrapper {
@@ -196,7 +197,8 @@ input:disabled {
 
 
 .section-c-wrapper {
-    margin: 1.5rem 1rem;
+    margin: 1.5rem 0.5rem;
+    overflow-x: hidden;
 }
 
 /* Section header */
@@ -204,22 +206,26 @@ input:disabled {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.6rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* 3-column layout */
 .section-c-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
+    gap: 0.5rem;
+    overflow: hidden;
 }
 
 /* Individual box */
 .section-c-box {
     border: 1px solid #999;
-    padding: 0.7rem;
+    padding: 0.8rem 0.7rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
+    min-width: 0;
 }
 
 /* Box titles */
@@ -309,12 +315,24 @@ input:disabled {
 }
 
 
+@media (max-width: 1200px) {
+    .section-c-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 900px) {
     .section-c-grid {
         grid-template-columns: 1fr;
     }
 }
 
+.cert-text{
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-left: 1rem;
+    margin-bottom: 0.4rem;
+}
 
 .section-c-checkbox input[type="radio"] {
     width: 0.9rem;
@@ -329,36 +347,146 @@ input:disabled {
 }
 
 
-.cert-text {
-    font-size: 1.15rem;
-    margin: 0.6rem 1rem 1rem;
+
+
+label {
+    white-space: nowrap;
 }
 
-.cert-text span {
-    font-size: 1rem;
-    font-weight: 400;
+.field-suffix {
+    flex: 0 0 3.8rem;
 }
 
-/* Row layout */
-.cert-row {
+.cert-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0.8rem;
+    margin: 1rem;
+}
+
+/* CERT BOX (same as section-c-box) */
+.cert-box {
+    border: 1px solid #999;
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* CERT BOX TITLE */
+.cert-box-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+/* CERT FORM LINE (same as section-c-line) */
+.cert-line {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.cert-line label {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+
+/* INPUTS */
+.cert-line input {
+    height: 2.6rem;
+    font-size: 1.1rem;
+    padding: 0.2rem 0.3rem;
+    border: 1px solid #aaa;
+    outline: none;
+}
+
+.cert-line input:focus {
+    border-color: #555;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.submit-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 1rem;
+}
+
+.submit-btn {
+    background-color: #2E5A88;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #24496e;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+.required {
+    color: red;
+    font-weight: 700;
+}
+
+.same-address {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 0.6rem 1rem;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
 }
 
-/* Fixed label column */
-.cert-label {
-    width: 14rem;
-    font-size: 1.2rem;
-    font-weight: 600;
+.same-address input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
 }
 
-/* ONE WIDTH FOR ALL INPUTS */
-.cert-input {
-    width: 24rem;        /* same width as SIGNATURE */
-    height: 3rem;
-    border: 1px solid #999;
-    font-size: 1.2rem;
-    padding: 0.3rem 0.4rem;
+.same-address label {
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
+
+/* Input error styling */
+input.error,
+select.error {
+    border: 2px solid #d32f2f !important;
+    background-color: #ffebee;
+}
+
+input.error::placeholder {
+    color: #d32f2f;
+}
+
+/* Error message styling */
+.error-message {
+    display: none;
+    color: #d32f2f;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.3rem;
+    padding: 0.2rem 0;
+}
+
+.error-message.show {
+    display: block;
+}
+
