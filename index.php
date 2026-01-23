@@ -170,7 +170,7 @@
         <p class="parent-info">Mother's Information</p>
         <div class="Account-Details">
             <div class="field">
-                <label for="mother_firstname">First Name</label>
+                <label for="mother_firstname" >First Name</label>
                 <input type="text" id="mother_firstname" name="mother_firstname" placeholder="First Name">
             </div>
 
@@ -184,6 +184,426 @@
                 <input type="text" id="mother_lastname" name="mother_lastname" placeholder="Last Name">
             </div>
         </div>
+
+        <hr>
+
+        <p class="section-title">B. DEPENDENT(S) / BENEFICIARY(IES)</p>
+
+        <!-- Spouse -->
+        <p class="sub-section">Spouse</p>
+        <div class="Account-Details">
+            <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name">
+            </div>
+            <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="field">
+                <label>Middle Name</label>
+                <input type="text" placeholder="Middle Name">
+            </div>
+            <div class="field field-suffix">
+                <label>Suffix</label>
+                <select>
+                    <option value="">Select Suffix</option>
+                    <option value="Jr">Jr.</option>
+                    <option value="Sr">Sr.</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                </select>
+
+            </div>
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" placeholder="MM/DD/YYYY">
+            </div>
+        </div>
+
+        <!-- Children -->
+        <p class="sub-section">Child / Children</p>
+
+        <!-- Child 1 -->
+        <div class="Account-Details">
+            <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name">
+            </div>
+            <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="field">
+                <label>Middle Name</label>
+                <input type="text" placeholder="Middle Name">
+            </div>
+            <div class="field field-suffix">
+                <label>Suffix</label>
+                <select>
+                    <option value="">Select Suffix</option>
+                    <option value="Jr">Jr.</option>
+                    <option value="Sr">Sr.</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                </select>
+
+            </div>
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" placeholder="MM/DD/YYYY">
+            </div>
+        </div>
+
+        <!-- Child 2 -->
+        <div class="Account-Details">
+            <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name">
+            </div>
+            <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="field">
+                <label>Middle Name</label>
+                <input type="text" placeholder="Middle Name">
+            </div>
+            <div class="field field-suffix">
+                <label>Suffix</label>
+                <select>
+                    <option value="">Select Suffix</option>
+                    <option value="Jr">Jr.</option>
+                    <option value="Sr">Sr.</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                </select>
+
+            </div>
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" placeholder="MM/DD/YYYY">
+            </div>
+        </div>
+
+        <!-- Other Beneficiaries -->
+        <p class="sub-section">
+            Other Beneficiary/ies <span class="note">(If without spouse & child)</span>
+        </p>
+
+        <div class="Account-Details">
+            <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name">
+            </div>
+            <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="field">
+                <label>Middle Name</label>
+                <input type="text" placeholder="Middle Name">
+            </div>
+            <div class="field field-suffix">
+                <label>Suffix</label>
+                <select>
+                <option value="">Select Suffix</option>
+                <option value="Jr">Jr.</option>
+                <option value="Sr">Sr.</option>
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+            </select>
+
+            </div>
+            <div class="field">
+                <label>Relationship</label>
+                <input type="text" placeholder="Relationship">
+            </div>
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" placeholder="MM/DD/YYYY">
+            </div>
+        </div>
+        <div class="Account-Details">
+            <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name">
+            </div>
+            <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="field">
+                <label>Middle Name</label>
+                <input type="text" placeholder="Middle Name">
+            </div>
+            <div class="field field-suffix">
+                <label>Suffix</label>
+                <select>
+                    <option value="">Select Suffix</option>
+                    <option value="Jr">Jr.</option>
+                    <option value="Sr">Sr.</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                </select>
+
+            </div>
+            <div class="field">
+                <label>Relationship</label>
+                <input type="text" placeholder="Relationship">
+            </div>
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" placeholder="MM/DD/YYYY">
+            </div>
+        </div>
+
+
+        <hr>
+
+        <!-- SECTION C -->
+<div class="section-c-wrapper">
+
+    <div class="section-c-header">
+        C. FOR SELF-EMPLOYED / OVERSEAS FILIPINO WORKER / NON-WORKING SPOUSE
+    </div>
+
+    <div class="section-c-grid">
+
+        <!-- SELF-EMPLOYED -->
+        <div class="section-c-box">
+            <div class="section-c-box-title">
+                SELF-EMPLOYED (SE)
+            </div>
+
+            <div class="section-c-line">
+                <label for="se_profession">Profession / Business</label>
+                <input type="text" id="se_profession">
+            </div>
+
+            <div class="section-c-line">
+                <label for="se_year_started">Year Prof./Business Started</label>
+                <input type="number" id="se_year_started">
+            </div>
+
+            <div class="section-c-line">
+                <label>Monthly Earnings</label>
+                <div class="section-c-peso">
+                    <span>₱</span>
+                    <input type="number">
+                </div>
+            </div>
+        </div>
+
+        <!-- OFW -->
+        <div class="section-c-box">
+            <div class="section-c-box-title">
+                OVERSEAS FILIPINO WORKER (OFW)
+            </div>
+
+            <div class="section-c-line">
+                <label for="ofw_address">Foreign Address</label>
+                <input type="text" id="ofw_address">
+            </div>
+
+            <div class="section-c-line">
+                <label>Monthly Earnings</label>
+                <div class="section-c-peso">
+                    <span>₱</span>
+                    <input type="number">
+                </div>
+            </div>
+
+            <div class="section-c-line">
+                <label>Applying for Flexi-Fund Program?</label>
+                <div class="section-c-checkbox">
+                    <label>
+                        <input type="radio" name="flexi_fund" value="yes"> YES
+                    </label>
+                    <label>
+                        <input type="radio" name="flexi_fund" value="no"> NO
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- NON-WORKING SPOUSE -->
+        <div class="section-c-box">
+            <div class="section-c-box-title">
+                NON-WORKING SPOUSE (NWS)
+            </div>
+
+            <div class="section-c-line">
+                <label for="nws_sss">SS No. / Common Reference No.</label>
+                <input type="text" id="nws_sss">
+            </div>
+
+            <div class="section-c-line">
+                <label>Monthly Income of Working Spouse</label>
+                <div class="section-c-peso">
+                    <span>₱</span>
+                    <input type="number">
+                </div>
+            </div>
+
+            <div class="section-c-agreement">
+                I agree with my spouse's membership with SSS.
+            </div>
+
+            <div class="section-c-signature">
+                <input type="file" accept=".jpg,.jpeg,.png,.pdf">
+                <label>
+                    SIGNATURE OVER PRINTED NAME<br>
+                    OF WORKING SPOUSE
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+    <hr>
+
+    <p class="section-title">D. CERTIFICATION</p>
+
+    <p class="cert-text">
+        I certify that the information provided in this form are true and correct.<br>
+        <span>(Upload what's being asked)</span>
+    </p>
+
+    <div class="cert-row">
+        <div class="cert-label">PRINTED NAME</div>
+        <input type="text" class="cert-input">
+    </div>
+
+    <div class="cert-row">
+        <div class="cert-label">SIGNATURE</div>
+        <input type="file" class="cert-input">
+    </div>
+
+    <div class="cert-row">
+        <div class="cert-label">DATE</div>
+        <input type="date" class="cert-input">
+    </div>
+
+    <div class="cert-row">
+        <div class="cert-label">RIGHT THUMB</div>
+        <input type="file" class="cert-input">
+    </div>
+
+    <div class="cert-row">
+        <div class="cert-label">RIGHT INDEX</div>
+        <input type="file" class="cert-input">
+    </div>
+
+    <hr>
+
+<div class="sss-part2-wrapper">
+
+    <div class="sss-part2-title">
+        PART II - TO BE FILLED OUT BY SSS
+    </div>
+
+    <div class="sss-part2-grid">
+
+        <!-- COLUMN 1 -->
+        <div class="sss-part2-col">
+            <div class="sss-field">
+                <label>BUSINESS CODE<br><span>(FOR SE)</span></label>
+                <input type="text">
+            </div>
+
+            <div class="sss-field">
+                <label>MONTHLY SS CONTRIBUTION<br><span>(FOR SE/OFW/NWS)</span></label>
+                <input type="text">
+            </div>
+
+            <div class="sss-field">
+                <label>START OF PAYMENT<br><span>(FOR SE/NWS)</span></label>
+                <input type="date">
+            </div>
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div class="sss-part2-col">
+            <div class="sss-field">
+                <label>WORKING SPOUSE'S MSC<br><span>(FOR NWS)</span></label>
+                <input type="text">
+            </div>
+
+            <div class="sss-field">
+                <label>APPROVED MSC<br><span>(FOR SE/OFW/NWS)</span></label>
+                <input type="text">
+            </div>
+
+            <div class="sss-field">
+                <label>FLEXI-FUND APPLICATION<br><span>(FOR OFW)</span></label>
+                <div class="sss-checkbox">
+                    <label><input type="checkbox"> Approved</label>
+                    <label><input type="checkbox"> Disapproved</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMN 3 -->
+        <div class="sss-part2-col">
+
+            <div class="sss-sign-box">
+                <div class="sss-sign-title">
+                    RECEIVED BY<br>
+                    <span>(REPRESENTATIVE OFFICE/PARTNER AGENT)</span>
+                </div>
+
+                <div class="sss-line"></div>
+                <div class="sss-sign-label">SIGNATURE OVER PRINTED NAME</div>
+
+                <div class="sss-sign-row">
+                    <div>
+                        <div class="sss-line"></div>
+                        <div class="sss-sign-label">DATE & TIME</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sss-sign-box">
+                <div class="sss-sign-title">
+                    RECEIVED & PROCESSED BY<br>
+                    <span>(MSS, BRANCH/SERVICE OFFICE/FOREIGN OFFICE)</span>
+                </div>
+
+                <div class="sss-line"></div>
+                <div class="sss-sign-label">SIGNATURE OVER PRINTED NAME</div>
+
+                <div class="sss-line"></div>
+                <div class="sss-sign-label">DATE & TIME</div>
+            </div>
+
+            <div class="sss-sign-box">
+                <div class="sss-sign-title">
+                    REVIEWED BY<br>
+                    <span>(MSS, BRANCH/SERVICE OFFICE)</span>
+                </div>
+
+                <div class="sss-line"></div>
+                <div class="sss-sign-label">SIGNATURE OVER PRINTED NAME</div>
+
+                <div class="sss-line"></div>
+                <div class="sss-sign-label">DATE & TIME</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+    
+
+
 
     </div>
 </div>

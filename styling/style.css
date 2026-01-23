@@ -9,6 +9,7 @@
 #wrapper {
     background-color: #F4F3F2;
     min-height: 100vh;
+    padding-top: 1rem;
 }
 
 #container {
@@ -16,9 +17,11 @@
     padding: 1rem;
     width: 60%;
     margin: 0 auto;
+    margin-top: 0;
 }
 
 .OnlineRegistration{
+    
     font-size: 1.6rem;
     margin-left: 1rem;
     margin-top: 2.5rem;
@@ -66,7 +69,7 @@ hr {
 .Account-Details {
     display: flex;
     gap: 0.7rem;
-    margin: 2rem 1rem 1rem 1rem;
+    margin: .5rem 1rem 1rem 1rem;
     width: 97%;
 }
 
@@ -143,20 +146,219 @@ input:disabled {
 
 .same-address {
     display: flex;
-    align-items: center; /* vertically align with text */
-    gap: 0.5rem; /* space between checkbox and label */
-    margin-top: 0.5rem; /* space from the input above */
+    align-items: center; 
+    gap: 0.5rem; 
+    margin-top: 0.5rem; 
 }
 
 .same-address input[type="checkbox"] {
-    width: 1.2rem;   /* checkbox size */
-    height: 1.2rem;  /* checkbox size */
+    width: 1.2rem;   
+    height: 1.2rem; 
     cursor: pointer;
 }
 
 .same-address label {
-    font-size: 1.1rem; /* slightly smaller, matching form labels */
+    font-size: 1.1rem; 
     font-weight: 400;
     line-height: 1.2rem;
-    cursor: pointer;   /* click on label checks the box */
+    cursor: pointer;   
+}
+
+.parent-info{
+     font-size: 1.3rem;
+    font-weight: 600;
+    color: black;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+}
+
+
+.section-title {
+     font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1.5rem 1rem 0.5rem 1rem;
+}
+
+.sub-section {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1rem 1rem 0.3rem 1rem;
+}
+
+.note {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #555;
+}
+
+
+
+
+
+.section-c-wrapper {
+    margin: 1.5rem 1rem;
+}
+
+/* Section header */
+.section-c-header {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+/* 3-column layout */
+.section-c-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+}
+
+/* Individual box */
+.section-c-box {
+    border: 1px solid #999;
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* Box titles */
+.section-c-box-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+/* Form rows */
+.section-c-line {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.section-c-line label {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Inputs */
+.section-c-line input[type="text"],
+.section-c-line input[type="number"],
+.section-c-line input[type="file"] {
+    height: 2.6rem;
+    font-size: 1.1rem;
+    padding: 0.2rem 0.3rem;
+    border: 1px solid #aaa;
+    outline: none;
+}
+
+.section-c-line input:focus {
+    border-color: #555;
+}
+
+/* Peso input */
+.section-c-peso {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.section-c-peso span {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.section-c-peso input {
+    flex: 1;
+}
+
+/* Checkbox / Radio group */
+.section-c-checkbox {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.section-c-checkbox label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Agreement text */
+.section-c-agreement {
+    font-size: 1.05rem;
+    margin-top: 0.3rem;
+}
+
+
+.section-c-signature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 0.3rem;
+    margin-top: 0.4rem;
+}
+
+.section-c-signature label {
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+@media (max-width: 900px) {
+    .section-c-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.section-c-checkbox input[type="radio"] {
+    width: 0.9rem;
+    height: 0.9rem;
+    transform: scale(0.85);
+    accent-color: green;
+}
+
+/* Slightly tighter spacing */
+.section-c-checkbox {
+    gap: 1.2rem;
+}
+
+
+.cert-text {
+    font-size: 1.15rem;
+    margin: 0.6rem 1rem 1rem;
+}
+
+.cert-text span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Row layout */
+.cert-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.6rem 1rem;
+}
+
+/* Fixed label column */
+.cert-label {
+    width: 14rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ONE WIDTH FOR ALL INPUTS */
+.cert-input {
+    width: 24rem;        /* same width as SIGNATURE */
+    height: 3rem;
+    border: 1px solid #999;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.4rem;
 }
