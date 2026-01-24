@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sameAddressCheckbox) {
         sameAddressCheckbox.addEventListener('change', function() {
             if (this.checked) {
-                // Hide home address row
+                
                 homeAddressRow.style.display = 'none';
                 
-                // Copy place of birth value to home address
+               
                 const placeOfBirthValue = placeOfBirthField.value.trim();
                 homeAddressField.value = placeOfBirthValue;
                 
-                // Clear error message for home address when hiding
+                
                 clearFieldError('home_address');
             } else {
-                // Show home address row
+                
                 homeAddressRow.style.display = 'flex';
                 
                
@@ -73,27 +73,57 @@ document.addEventListener('DOMContentLoaded', function() {
     if (registrationForm) {
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('Form submit triggered');
 
-            
             clearAllErrors();
 
-           
             const isValid = validateFormOnSubmit();
+            console.log('Form valid:', isValid);
 
             if (!isValid) {
+                console.log('Form validation failed');
                 return false;
             }
 
-           
             const sameAddress = sameAddressCheckbox.checked;
             if (sameAddress) {
                 const placeOfBirth = document.getElementById('place_of_birth').value;
                 document.getElementById('home_address').value = placeOfBirth;
             }
 
+            const formData = new FormData(registrationForm);
             
-            this.submit();
+            fetch('validate.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Response received:', response.status);
+                return response.text();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                if (data.includes('Successfully registered')) {
+                    console.log('Success! Clearing form and showing alert');
+                    registrationForm.reset();
+                    alert('Successfully registered!');
+                } else {
+                    console.log('Unexpected response');
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                alert('An error occurred while submitting the form.');
+            });
         });
+    }
+
+    function createResponseContainer() {
+        const container = document.createElement('div');
+        container.id = 'response-container';
+        container.style.cssText = 'margin: 20px 0; padding: 15px; border-radius: 5px; font-size: 16px;';
+        registrationForm.parentNode.insertBefore(container, registrationForm);
+        return container;
     }
 });
 

@@ -29,7 +29,7 @@
         <p class="OnlineRegistration">Online Registration</p>
         <hr>
 
-        <form id="registrationForm" method="POST" action="validate.php">
+        <form id="registrationForm" method="POST">
 
         <!-- Name Row -->
         <div class="Account-Details">
@@ -218,19 +218,19 @@
         <div class="Account-Details">
             <div class="field">
                 <label>Last Name</label>
-                <input type="text" placeholder="Last Name">
+                <input type="text" name="spouse_lastname" placeholder="Last Name">
             </div>
             <div class="field">
                 <label>First Name</label>
-                <input type="text" placeholder="First Name">
+                <input type="text" name="spouse_firstname" placeholder="First Name">
             </div>
             <div class="field">
                 <label>Middle Name</label>
-                <input type="text" placeholder="Middle Name">
+                <input type="text" name="spouse_middlename" placeholder="Middle Name">
             </div>
             <div class="field field-suffix">
                 <label>Suffix</label>
-                <select>
+                <select name="spouse_suffix">
                     <option value="">Select Suffix</option>
                     <option value="Jr">Jr.</option>
                     <option value="Sr">Sr.</option>
@@ -254,19 +254,19 @@
         <div class="Account-Details">
             <div class="field">
                 <label>Last Name</label>
-                <input type="text" placeholder="Last Name">
+                <input type="text" name="child1_lastname" placeholder="Last Name">
             </div>
             <div class="field">
                 <label>First Name</label>
-                <input type="text" placeholder="First Name">
+                <input type="text" name="child1_firstname" placeholder="First Name">
             </div>
             <div class="field">
                 <label>Middle Name</label>
-                <input type="text" placeholder="Middle Name">
+                <input type="text" name="child1_middlename" placeholder="Middle Name">
             </div>
             <div class="field field-suffix">
                 <label>Suffix</label>
-                <select>
+                <select name="child1_suffix">
                     <option value="">Select Suffix</option>
                     <option value="Jr">Jr.</option>
                     <option value="Sr">Sr.</option>
@@ -287,19 +287,19 @@
         <div class="Account-Details">
             <div class="field">
                 <label>Last Name</label>
-                <input type="text" placeholder="Last Name">
+                <input type="text" name="child2_lastname" placeholder="Last Name">
             </div>
             <div class="field">
                 <label>First Name</label>
-                <input type="text" placeholder="First Name">
+                <input type="text" name="child2_firstname" placeholder="First Name">
             </div>
             <div class="field">
                 <label>Middle Name</label>
-                <input type="text" placeholder="Middle Name">
+                <input type="text" name="child2_middlename" placeholder="Middle Name">
             </div>
             <div class="field field-suffix">
                 <label>Suffix</label>
-                <select>
+                <select name="child2_suffix">
                     <option value="">Select Suffix</option>
                     <option value="Jr">Jr.</option>
                     <option value="Sr">Sr.</option>
@@ -324,19 +324,19 @@
         <div class="Account-Details">
             <div class="field">
                 <label>Last Name</label>
-                <input type="text" placeholder="Last Name">
+                <input type="text" name="other_benef1_lastname" placeholder="Last Name">
             </div>
             <div class="field">
                 <label>First Name</label>
-                <input type="text" placeholder="First Name">
+                <input type="text" name="other_benef1_firstname" placeholder="First Name">
             </div>
             <div class="field">
                 <label>Middle Name</label>
-                <input type="text" placeholder="Middle Name">
+                <input type="text" name="other_benef1_middlename" placeholder="Middle Name">
             </div>
             <div class="field field-suffix">
                 <label>Suffix</label>
-                <select>
+                <select name="other_benef1_suffix">
                 <option value="">Select Suffix</option>
                 <option value="Jr">Jr.</option>
                 <option value="Sr">Sr.</option>
@@ -350,7 +350,7 @@
                 
                 <div class="field">
                 <label>Relationship</label>
-            <select>
+            <select name="other_benef1_relationship">
                 <option value="">Select Relationship</option>
                 <option value="Sibling">Sibling</option>
                 <option value="Grandparent">Grandparent</option>
@@ -369,19 +369,19 @@
         <div class="Account-Details">
             <div class="field">
                 <label>Last Name</label>
-                <input type="text" placeholder="Last Name">
+                <input type="text" name="other_benef2_lastname" placeholder="Last Name">
             </div>
             <div class="field">
                 <label>First Name</label>
-                <input type="text" placeholder="First Name">
+                <input type="text" name="other_benef2_firstname" placeholder="First Name">
             </div>
             <div class="field">
                 <label>Middle Name</label>
-                <input type="text" placeholder="Middle Name">
+                <input type="text" name="other_benef2_middlename" placeholder="Middle Name">
             </div>
             <div class="field field-suffix">
                 <label>Suffix</label>
-                <select>
+                <select name="other_benef2_suffix">
                     <option value="">Select Suffix</option>
                     <option value="Jr">Jr.</option>
                     <option value="Sr">Sr.</option>
@@ -393,7 +393,7 @@
             </div>
             <div class="field">
                 <label>Relationship</label>
-                <select>
+                <select name="other_benef2_relationship">
                     <option value="">Select Relationship</option>
                     <option value="Parent">Parent</option>
                     <option value="Sibling">Sibling</option>
@@ -430,19 +430,19 @@
 
             <div class="section-c-line">
                 <label for="se_profession">Profession / Business</label>
-                <input type="text" id="se_profession">
+                <input type="text" id="se_profession" name="se_profession">
             </div>
 
             <div class="section-c-line">
                 <label for="se_year_started">Year Prof./Business Started</label>
-                <input type="number" id="se_year_started">
+                <input type="number" id="se_year_started" name="se_year_started">
             </div>
 
             <div class="section-c-line">
                 <label>Monthly Earnings</label>
                 <div class="section-c-peso">
                     <span>₱</span>
-                    <input type="number">
+                    <input type="number" name="se_monthly_earnings">
                 </div>
             </div>
         </div>
@@ -455,14 +455,14 @@
 
             <div class="section-c-line">
                 <label for="ofw_address">Foreign Address</label>
-                <input type="text" id="ofw_address">
+                <input type="text" id="ofw_address" name="ofw_address">
             </div>
 
             <div class="section-c-line">
                 <label>Monthly Earnings</label>
                 <div class="section-c-peso">
                     <span>₱</span>
-                    <input type="number">
+                    <input type="number" name="ofw_monthly_earnings">
                 </div>
             </div>
 
@@ -487,23 +487,23 @@
 
             <div class="section-c-line">
                 <label for="nws_sss">SS No. / Common Reference No.</label>
-                <input type="text" id="nws_sss">
+                <input type="text" id="nws_sss" name="nws_sss">
             </div>
 
             <div class="section-c-line">
                 <label>Monthly Income of Working Spouse</label>
                 <div class="section-c-peso">
                     <span>₱</span>
-                    <input type="number">
+                    <input type="number" name="nws_spouse_monthly_income">
                 </div>
             </div>
 
             <div class="section-c-agreement">
-                I agree with my spouse's membership with SSS.
+                <input type="checkbox" name="nws_agreement"> I agree with my spouse's membership with SSS.
             </div>
 
             <div class="section-c-signature">
-                <input type="file" accept=".jpg,.jpeg,.png,.pdf">
+                <input type="file" name="nws_spouse_signature" accept=".jpg,.jpeg,.png,.pdf">
                 <label>
                     SIGNATURE OVER PRINTED NAME<br>
                     OF WORKING SPOUSE
@@ -531,17 +531,17 @@
 
         <div class="cert-line">
             <label>Printed Name</label>
-            <input type="text">
+            <input type="text" name="cert_printed_name">
         </div>
 
         <div class="cert-line">
             <label>Signature</label>
-            <input type="file">
+            <input type="file" name="cert_signature">
         </div>
 
         <div class="cert-line">
             <label>Date</label>
-            <input type="date">
+            <input type="date" name="cert_date">
         </div>
     </div>
 
@@ -551,12 +551,12 @@
 
         <div class="cert-line">
             <label>Right Thumb</label>
-            <input type="file">
+            <input type="file" name="biometric_right_thumb">
         </div>
 
         <div class="cert-line">
             <label>Right Index</label>
-            <input type="file">
+            <input type="file" name="biometric_right_index">
         </div>
     </div>
 
