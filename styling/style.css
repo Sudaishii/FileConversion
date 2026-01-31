@@ -292,12 +292,20 @@ input:disabled {
     cursor: pointer;
 }
 
-/* Agreement text */
 .section-c-agreement {
+    display: flex;
+    align-items: flex-start; /* aligns checkbox with first line of text */
+    gap: 0.5rem;
     font-size: 1.05rem;
-    margin-top: 0.3rem;
+    line-height: 1.3;
 }
 
+.section-c-agreement input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.15rem; /* fine-tune vertical alignment */
+    cursor: pointer;
+}
 
 .section-c-signature {
     display: flex;
@@ -341,7 +349,7 @@ input:disabled {
     accent-color: green;
 }
 
-/* Slightly tighter spacing */
+
 .section-c-checkbox {
     gap: 1.2rem;
 }
@@ -489,4 +497,81 @@ input.error::placeholder {
 .error-message.show {
     display: block;
 }
+
+/* Admin table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+}
+.admin-table th, .admin-table td {
+    border: 1px solid #e2e2e2;
+    padding: 0.6rem;
+    font-size: 0.95rem;
+}
+.admin-table thead th {
+    background: #f4f6f8;
+    font-weight: 700;
+}
+.admin-table tbody tr:hover {
+    background: #fbfcfd;
+}
+
+.admin-actions button {
+    margin-right: 0.4rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.4rem;
+    border: none;
+    background: #2E5A88;
+    color: #fff;
+    cursor: pointer;
+}
+.admin-actions button.delete {
+    background: #d32f2f;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* ensure space on small screens */
+    background: rgba(0,0,0,0.35);
+    z-index: 1000;
+}
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 960px;
+    border-radius: 0.6rem;
+    padding: 1rem;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.related-data .related-section {
+    border-top: 1px solid #eee;
+    padding-top: 0.6rem;
+    margin-top: 0.6rem;
+}
+.related-data .related-section h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+}
+
+/* ensure modal inputs match index styling */
+.modal .field input {
+    height: 2.6rem;
+    font-size: 1.1rem;
+}
+
+/* readonly visual */
+input.readonly-field, textarea.readonly-field {
+    background-color: #f5f5f5;
+}
+
 

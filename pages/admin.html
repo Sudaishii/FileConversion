@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin - Registrations</title>
+<link rel="stylesheet" href="../styling/style.css">
+</head>
+<body>
+<div id="wrapper">
+    <div id="container">
+        <h2 style="margin:1rem 0;">Admin's Side</h2>
+
+        <div style="display:flex;gap:1rem;align-items:center;margin:0 1rem 1rem 1rem;">
+            <input id="search" type="text" placeholder="Search by name, account, or phone" style="flex:1;padding:0.5rem;font-size:1rem;border:1px solid #aaa;" />
+            <button id="btnRefresh" class="submit-btn" style="padding:0.5rem 1rem;">Refresh</button>
+            <button id="btnNew" class="submit-btn" style="padding:0.5rem 1rem;background:#4CAF50;">New</button>
+        </div>
+
+        <div class="admin-container" style="margin:0 1rem 1rem 1rem;overflow:auto;">
+            <table class="admin-table" id="recordsTable">
+                <thead>
+                    <tr>
+                        <th>Account</th>
+                        <th>First</th>
+                        <th>Last</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>DOB</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+        </div>
+
+        <div id="modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h3 id="modalTitle">Edit Record</h3>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+
+        <template id="adminFormTemplate">
+            <form id="adminForm">
+                <input type="hidden" name="account_number" id="account_number">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="firstname">First Name</label>
+                        <input id="firstname" name="firstname" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="middlename">Middle Name</label>
+                        <input id="middlename" name="middlename">
+                    </div>
+
+                    <div class="field">
+                        <label for="lastname">Last Name</label>
+                        <input id="lastname" name="lastname" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="suffix">Suffix</label>
+                        <input id="suffix" name="suffix">
+                    </div>
+
+                    <div class="field">
+                        <label for="dob">Date of Birth</label>
+                        <input id="dob" name="dob" type="date">
+                    </div>
+
+                    <div class="field">
+                        <label for="sex">Sex</label>
+                        <select id="sex" name="sex">
+                            <option value="">Select Sex</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="civil_status">Civil Status</label>
+                        <select id="civil_status" name="civil_status">
+                            <option value="">Select</option>
+                            <option>Single</option>
+                            <option>Married</option>
+                            <option>Widowed</option>
+                            <option>Legally Separated</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="nationality">Nationality</label>
+                        <select id="nationality" name="nationality">
+                            <option value="">Select</option>
+                            <option>Filipino</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="pob">Place of Birth</label>
+                        <input id="pob" name="pob">
+                    </div>
+
+                    <div class="field">
+                        <label for="home_address">Home Address</label>
+                        <input id="home_address" name="home_address">
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone</label>
+                        <input id="phone" name="phone" placeholder="09XXXXXXXXX" maxlength="11">
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email">
+                    </div>
+
+                    <div class="field">
+                        <label for="created_at">Created At</label>
+                        <input id="created_at" name="created_at" type="text" readonly>
+                    </div>
+                </div>
+
+                <div id="relatedData" class="related-data" style="margin-top:1rem;background:#fafafa;padding:0.6rem;border:1px solid #eee;border-radius:0.4rem;">
+                    <h4 style="margin:0 0 0.6rem 0;">Related Details</h4>
+
+                    <div class="related-section" id="beneficiariesSection">
+                        <h5>Beneficiaries</h5>
+                        <div class="Account-Details">
+                            <div class="field"><label>Spouse Last</label><input id="spouse_lastname" name="spouse_lastname"></div>
+                            <div class="field"><label>Spouse First</label><input id="spouse_firstname" name="spouse_firstname"></div>
+                            <div class="field"><label>Spouse Middle</label><input id="spouse_middlename" name="spouse_middlename"></div>
+                        </div>
+
+                        <div class="Account-Details">
+                            <div class="field"><label>Child Last</label><input id="child1_lastname" name="child1_lastname"></div>
+                            <div class="field"><label>Child First</label><input id="child1_firstname" name="child1_firstname"></div>
+                            <div class="field"><label>Child Middle</label><input id="child1_middlename" name="child1_middlename"></div>
+                            <div class="field"><label>Child DOB</label><input id="child1_dob" name="child1_dob" type="date"></div>
+                        </div>
+
+                        <div class="Account-Details">
+                            <div class="field"><label>Other Last</label><input id="other_benef1_lastname" name="other_benef1_lastname"></div>
+                            <div class="field"><label>Other First</label><input id="other_benef1_firstname" name="other_benef1_firstname"></div>
+                            <div class="field"><label>Other Middle</label><input id="other_benef1_middlename" name="other_benef1_middlename"></div>
+                            <div class="field"><label>Relationship</label><input id="other_benef1_relationship" name="other_benef1_relationship"></div>
+                            <div class="field"><label>Other DOB</label><input id="other_benef1_dob" name="other_benef1_dob" type="date"></div>
+                        </div>
+                    </div>
+
+                    <div class="related-section" id="overseasSection"></div>
+                    <div class="related-section" id="certificationSection"></div>
+                </div>
+
+                <div style="display:flex;gap:0.6rem;justify-content:flex-end;margin-top:1rem;">
+                    <button type="button" id="btnCancel" class="submit-btn" style="background:#999;">Cancel</button>
+                    <button type="submit" id="btnSave" class="submit-btn">Save</button>
+                </div>
+            </form>
+        </template>
+
+    </div>
+</div>
+<script src="../script.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

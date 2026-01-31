@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `benefeciaries` (
-  `account_number` int(10) NOT NULL,
+  `account_number` BIGINT UNSIGNED NOT NULL,
   `spouse_fname` varchar(255) DEFAULT NULL,
   `spouse_lname` varchar(255) DEFAULT NULL,
   `child_fname` varchar(255) DEFAULT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `benefeciaries` (
   `other_mname` varchar(255) DEFAULT NULL,
   `other_lname` varchar(255) DEFAULT NULL,
   `relation` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
 
 -- --------------------------------------------------------
 
@@ -48,13 +48,13 @@ CREATE TABLE `benefeciaries` (
 --
 
 CREATE TABLE `certification` (
-  `account_number` int(10) NOT NULL,
+  `account_number` BIGINT UNSIGNED NOT NULL,
   `printedName_path` varchar(255) DEFAULT NULL,
   `singature_path` int(11) DEFAULT NULL,
   `date_path` int(11) DEFAULT NULL,
   `thumb_path` varchar(255) DEFAULT NULL,
   `index_path` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `certification` (
 --
 
 CREATE TABLE `overseas` (
-  `account_number` int(10) NOT NULL,
+  `account_number` BIGINT UNSIGNED NOT NULL,
   `profession_business` varchar(255) DEFAULT NULL,
   `business_started` varchar(255) DEFAULT NULL,
   `foreign_address` varchar(255) DEFAULT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `overseas` (
   `monthly_earning` int(11) DEFAULT NULL,
   `Nws_ss_number` int(12) DEFAULT NULL,
   `signature_path` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE `overseas` (
 
 CREATE TABLE `personal_data` (
   `id` int(11) NOT NULL,
-  `account_number` int(10) NOT NULL,
+  `account_number` BIGINT UNSIGNED NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `middle_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE `personal_data` (
   `nationality` varchar(255) NOT NULL,
   `pob` varchar(255) NOT NULL,
   `home_address` varchar(255) NOT NULL,
-  `mobile_number` int(11) NOT NULL,
+  `mobile_number` varchar(20) NOT NULL,
   `email_add` varchar(255) NOT NULL,
   `suffix` varchar(255) DEFAULT NULL,
   `father_fname` varchar(255) DEFAULT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE `personal_data` (
   `mother_fname` varchar(255) DEFAULT NULL,
   `mother_mname` varchar(255) DEFAULT NULL,
   `mother_lname` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
 
 --
 -- Indexes for dumped tables

@@ -13,7 +13,15 @@ if ($conn->connect_error) {
 }
 
 function generateAccountNumber($conn) {
-    return substr(bin2hex(random_bytes(5)), 0, 10);
+    // Generate sequential account number starting from 20000000000
+    $stmt = $conn->prepare("SELECT MAX(account_number) AS max_acc FROM personal_data");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $max_acc = $row['max_acc'] ?? 0;
+    $new_acc = max($max_acc + 1, 20000000000);
+    $stmt->close();
+    return $new_acc;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,6 +44,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['home_address'] = $_POST['place_of_birth'];
         } elseif (empty($_POST['home_address'])) {
             $errors[] = "Home Address is required";
+        }
+
+        // Server-side phone sanitization and validation
+        if (!empty($_POST['phone'])) {
+            $phone_raw = $_POST['phone'];
+            $phone = preg_replace('/\D/', '', $phone_raw); // keep digits only
+            if (!preg_match('/^09\d{9}$/', $phone)) {
+                $errors[] = "Phone must be 11 digits starting with 09";
+            }
+            // normalize phone back into POST so later assignment uses sanitized value
+            $_POST['phone'] = $phone;
         }
 
         if (!empty($errors)) {
@@ -65,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mother_fn   = $_POST['mother_firstname'] ?? '';
         $mother_mn   = $_POST['mother_middlename'] ?? '';
         $mother_ln   = $_POST['mother_lastname'] ?? '';
+
 
         $stmt = $conn->prepare("
             INSERT INTO personal_data (
@@ -104,50 +124,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mother_ln
         );
 
+        // Debug log - values about to be inserted
+        error_log("[validate.php] Inserting personal_data: account={$account_number}, phone={$phone}, email={$email}");
+        if ($phone === $account_number) {
+            error_log("[validate.php][ALERT] phone equals generated account for account={$account_number}");
+        }
+
         if (!$stmt->execute()) {
-            if (strpos($stmt->error, "Duplicate entry") !== false) {
-                $stmt->close();
-                $account_number = substr(bin2hex(random_bytes(5)), 0, 10);
-                $stmt = $conn->prepare("
-                    INSERT INTO personal_data (
-                        account_number, first_name, middle_name, last_name, suffix,
-                        dob, sex, civil_status, nationality, pob, home_address,
-                        mobile_number, email_add,
-                        father_fname, father_mname, father_lname, father_suffix,
-                        mother_fname, mother_mname, mother_lname
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ");
-                $stmt->bind_param(
-                    "ssssssssssssssssssss",
-                    $account_number,
-                    $firstname,
-                    $middlename,
-                    $lastname,
-                    $suffix,
-                    $dob,
-                    $sex,
-                    $civil,
-                    $nationality,
-                    $pob,
-                    $home_addr,
-                    $phone,
-                    $email,
-                    $father_fn,
-                    $father_mn,
-                    $father_ln,
-                    $father_suf,
-                    $mother_fn,
-                    $mother_mn,
-                    $mother_ln
-                );
-                if (!$stmt->execute()) {
-                    throw new Exception("personal_data insert failed: " . $stmt->error);
-                }
-            } else {
-                throw new Exception("personal_data insert failed: " . $stmt->error);
-            }
+            throw new Exception("personal_data insert failed: " . $stmt->error);
         }
         $stmt->close();
+
+        // Confirm inserted mobile_number for debugging (duplicate-branch case)
+        $res_check_dup = $conn->query("SELECT mobile_number FROM personal_data WHERE account_number = '" . $conn->real_escape_string($account_number) . "' LIMIT 1");
+        if ($res_check_dup) {
+            $row_check_dup = $res_check_dup->fetch_assoc();
+            error_log("[validate.php] After (retry) insert: account={$account_number} mobile_number=" . ($row_check_dup['mobile_number'] ?? 'NULL'));
+        }
 
         $spouse_fn = $_POST['spouse_firstname'] ?? '';
         $spouse_ln = $_POST['spouse_lastname'] ?? '';
@@ -210,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             INSERT INTO overseas (
                 account_number, profession_business, business_started,
                 foreign_address, flexi_fund, monthly_earning,
-                Nws_ss_number, signature_path
+                nws_ss_number, signature_path
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
 
@@ -243,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt = $conn->prepare("
             INSERT INTO certification (
-                account_number, printedName_path, singature_path,
+                account_number, printedName_path, signature_path,
                 date_path, thumb_path, index_path
             ) VALUES (?, ?, ?, ?, ?, ?)
         ");
@@ -267,7 +260,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $stmt->close();
 
-        echo "Successfully registered";
+        echo "Successfully registered. Account: " . $account_number;
 
     } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
